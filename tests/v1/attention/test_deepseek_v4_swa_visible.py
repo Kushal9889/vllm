@@ -412,7 +412,7 @@ def test_combine_topk_swa_with_image_spans(cfg):
 def test_v41_combine_topk_swa_stops_at_replay_start(cfg, with_image):
     """SWA bounded replay: the gathered buffer starts at replay_start, so the
     window (plain or widened by an image span) never indexes below it."""
-    from vllm.models.deepseek_v4_1.common.ops.cache_utils import (
+    from vllm.models.deepseek_v41.common.ops.cache_utils import (
         combine_topk_swa_indices as combine_v41,
     )
 
@@ -673,7 +673,7 @@ def test_builder_replay_start_bounds_prefill_window_and_gather():
 
 @pytest.mark.skipif(not torch.cuda.is_available(), reason="requires CUDA")
 def test_v41_flashinfer_mixed_sparse_indices_respect_replay_start():
-    from vllm.models.deepseek_v4_1.common.ops.cache_utils import (
+    from vllm.models.deepseek_v41.common.ops.cache_utils import (
         build_flashinfer_mixed_sparse_indices as build_v41,
     )
 
